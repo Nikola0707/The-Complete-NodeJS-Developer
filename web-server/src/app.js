@@ -7,7 +7,7 @@ const app = express();
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
-const partialsPath = path.join(__dirname, "../templates/partials");
+const partialsPath= path.join(__dirname, "../templates/partials");
 
 // Setup handlebars and views location
 app.set("view engine", "hbs");
@@ -45,6 +45,25 @@ app.get("/weather", (req, res) => {
     location: "Skopje",
   });
 });
+
+// Single route hendler
+app.get('/help/*', (rew, res) =>{
+    res.render("404", {
+        title: "404",
+        name: "Nikola Ristoski",
+        errorMessage: "Help article not found"
+    })
+})
+
+// Route handler 404 page
+// if route not found
+app.get('*', (req, res) => {
+    res.render("404", {
+        title: "404",
+        name: "Nikola Ristoski",
+        errorMessage: "Page not found"
+    })
+})
 
 app.listen(3000, () => {
   console.log("Server is up on port 3000");
