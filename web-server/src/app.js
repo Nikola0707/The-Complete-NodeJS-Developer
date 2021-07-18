@@ -21,7 +21,7 @@ app.get("", (req, res) => {
   // the first argument is the name of the view to render (index)
   // and the second is an object which contains all values that will be rendered
   res.render("index", {
-    title: "Weather app",
+    title: "Weather",
     name: "Nikola Ristoski",
   });
 });
