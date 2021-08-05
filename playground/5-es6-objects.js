@@ -15,8 +15,11 @@ const product = {
 // const {label:productLabel, price, stock, salePrice} = product
 // console.log(productLabel)
 
+// = {} Setting up default object, when we destructure an object, the code 
+  // works whether or not an object is ever passed
+
 // Destructing in function
-const transaction = (type, {label, price}) => {
+const transaction = (type, {label, price} = {}) => {
     console.log(type, label, price);
 }
 transaction('order', product)
